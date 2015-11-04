@@ -1,0 +1,1100 @@
+<?php View::content() ?>
+<?php echo Form::open() ?>
+
+<br>
+<center>
+  <img id="blah"class="center" src="#" alt="No ha Elegido Imagen" style="margin:auto;height:300px;width:400px" />
+  <input type='file' id="imgInp" />
+</center>
+  <fieldset class="formulario_centro">
+    <legend>1 - ID</legend>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Folio</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="form-group">
+            <?php echo Form::text("ide.id") ?>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Temporada</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="input-group">
+            <?php echo Form::dbselect("ide.temporada_id") ?>
+            <div class="input-group-btn">
+              <button type="button" data-toggle="modal" data-target="#myModal3">+</button>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Especie</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="input-group">
+            <?php echo Form::dbselect("ide.especie_id") ?>
+            <div class="input-group-btn">
+              <button type="button" data-toggle="modal" data-target="#myModal">+</button>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Categoria</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          
+          <div class="input-group">
+            <?php echo Form::dbselect("ide.categoria_id") ?>
+            <span class="input-group-btn">
+              <button type="button" data-toggle="modal" data-target="#myModal2">+</button>
+            </span>
+          </div><!-- /input-group -->
+        </div>
+    </div>
+  </fieldset>
+ <fieldset class="formulario_centro">
+    <legend>2 - Socio</legend>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Cazador</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="form-group">
+            <?php echo Form::text("socio.cazador") ?>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Nombre Socio</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="form-group">
+            <?php echo Form::text("socio.nombre_socio") ?>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <label>Num. de Socio</label>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+          <?php echo Form::text("socio.num_socio") ?>
+          </div>
+        </div>        
+        <div class="col-xs-6 col-md-3">
+          <label>Lic. de Caza #</label>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+          <?php echo Form::text("socio.lic_caza") ?>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Membrisa S.C.I</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="form-group">
+          <?php echo Form::text("socio.membresia") ?>
+          </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Num. de Cintillo</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="form-group">
+          <?php echo Form::text("socio.num_cintillo") ?>
+          </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <label>Correo</label>
+        </div>
+        <div class="col-xs-9 col-md-9">
+          <div class="form-group">
+          <?php echo Form::text("socio.correo") ?>
+          </div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-2">
+          <label>Edad</label>
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <div class="form-group">
+          <?php echo Form::select("socio.edad",Util::getArrayEdades("18","90")) ?>
+          </div>
+        </div>  
+        <div class="col-xs-6 col-md-2">
+          <label>Sexo</label>
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <div class="form-group">
+          <?php echo Form::select("socio.sexo",array(""=>"Seleccione","M"=>"M","F"=>"F")) ?>
+          </div>
+        </div>         
+        <div class="col-xs-6 col-md-2">
+          <label>Tel</label>
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <div class="form-group">
+          <?php echo Form::text("socio.tlf") ?>
+          </div>
+        </div>
+    </div>
+  </fieldset>
+  <fieldset class="formulario_centro">
+    <legend>I. Largo del Main Bean</legend>
+    <div class="row">
+        <div class="col-xs-6 col-md-1">
+          <label>L</label>
+        </div>
+        <div class="col-xs-6 col-md-5">
+          <div class="form-group input-group">
+            <?php echo Form::text("mainbeanlargo.left") ?>
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-6 col-md-1">
+          <label>R</label>
+        </div>
+        <div class="col-xs-6 col-md-5">
+          <div class="form-group input-group">
+            <?php echo Form::text("mainbeanlargo.right") ?>
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    </div>
+  
+  </fieldset>
+  <fieldset class="formulario_centro">
+    <legend>II. Longitud de Velas Tipicas</legend>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>T1-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasleft input_octal" name="longitudvelastipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group input_octal">
+            <input type="text" class="longitudvelastipicasright input_octal" name="longitudvelastipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+      
+        
+
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>T2-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasleft input_octal" name="longitudvelastipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasright input_octal" name="longitudvelastipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+        
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>T3-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasleft input_octal" name="longitudvelastipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasright input_octal" name="longitudvelastipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+
+
+    </div>
+      <div class="row">
+          <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>T4-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasleft input_octal" name="longitudvelastipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasright input_octal" name="longitudvelastipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+ 
+
+    </div>
+      <div class="row">
+          <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>T5-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasleft input_octal" name="longitudvelastipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasright input_octal" name="longitudvelastipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+
+
+    </div>
+      <div class="row">
+          <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>T6-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasleft input_octal" name="longitudvelastipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelastipicasright input_octal" name="longitudvelastipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+
+          </div>
+        </div>
+   
+
+    </div>
+    <div class="row">
+  
+      <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label></label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="ltotalleft input_octal"  name="longitudvelastipicas[totalleft]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label></label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="ltotalright input_octal" name="longitudvelastipicas[totalright]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+
+    </div>  
+  </fieldset>
+  <fieldset class="formulario_centro">
+    <legend>III. Circunferencias</legend>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>C1-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasleft input_octal" name="circunferencias[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasright input_octal" name="circunferencias[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+  
+
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>C2-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasleft input_octal" name="circunferencias[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasright input_octal" name="circunferencias[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+          <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>C3-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasleft input_octal" name="circunferencias[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasright input_octal" name="circunferencias[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+          <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>C4-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasleft input_octal" name="circunferencias[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="circunferenciasright input_octal" name="circunferencias[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label></label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="ctotalleft input_octal" name="circunferencias[totalleft]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+    
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-2 col-md-2">
+          <label></label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="ctotalright input_octal" name="circunferencias[totalright]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+  
+  </fieldset>
+  <fieldset class="formulario_centro">
+    <legend>3- Lugar de Caza</legend>
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <label>Rancho</label>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <?php echo Form::text("lugarcasa.rancho") ?>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <label>Municipio</label>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <?php echo Form::text("lugarcasa.municipio") ?>
+          </div>
+        </div>
+    </div>
+
+  <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <label>Estado</label>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+            <?php echo Form::text("lugarcasa.estado") ?>
+          </div>
+        </div>  
+        <div class="col-xs-6 col-md-3">
+          <label>Pais</label>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="form-group">
+            <?php echo Form::text("lugarcasa.pais") ?>
+          </div>
+        </div>  
+  </div>  
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <label>Fecha Caza</label>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <?php echo Form::text("lugarcasa.fecha_caza") ?>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <label>Fecha Registro</label>
+        </div>
+        <div class="col-xs-6 col-md-4">
+          <div class="form-group">
+            <?php echo Form::text("lugarcasa.fecha_registro") ?>
+          </div>
+        </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Cerco</legend>
+    <div class="radio">
+      <div class="col-xs-6 col-md-6">
+      <label>
+        <input type="radio" name="lugarcasa[cerco]" checked value="Cerco Alto">Cerco Alto
+      </label>
+      </div>
+      <div class="col-xs-6 col-md-6">
+      <label>
+        <input type="radio" name="lugarcasa[cerco]" value="Cerco Bajo">Cerco Bajo
+      </label>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Metodo</legend>
+    <div class="radio">
+      <div class="col-xs-6 col-md-6">
+      <label>
+        <input type="radio" name="lugarcasa[metodo]" checked value="Arco y Flecha">Arco y Flecha
+      </label>
+      </div>
+      <div class="col-xs-6 col-md-6">
+      <label>
+        <input type="radio" name="lugarcasa[metodo]" value="Arma de Fuego">Arma de Fuego
+      </label>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="formulario_centro">
+    <legend>III. Longitud De Velas Atipicas</legend>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT1-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT2-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT3-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT4-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT5-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT6-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT7-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+          <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT8-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT9-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT10-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT11-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT12-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT13-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label>NT14-L</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="input_octal longitudvelasatipicasleft" name="longitudvelasatipicas[left][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label>R</label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="longitudvelasatipicasright input_octal" name="longitudvelasatipicas[right][]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-2 col-md-2"></div>
+
+        <div class="col-xs-2 col-md-2">
+          <label></label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="latotalleft input_octal" name="longitudvelasatipicas[totalleft]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+        
+        <div class="col-xs-2 col-md-2">
+          <label></label>
+        </div>
+        <div class="col-xs-2 col-md-2">
+          <div class="form-group input-group">
+            <input type="text" class="latotalright input_octal" name="longitudvelasatipicas[totalright]">
+            <span class="input-group-addon" id="basic-addon2">/8</span>
+          </div>
+        </div>
+
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <div class="row">
+          <div class="col-xs-6 col-md-6">
+            <label>V. Abertura</label>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <div class="form-group input-group">
+              <input type="text" name="lugarcaza[vabertura]">
+              <span class="input-group-addon" id="basic-addon2">/8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-6">
+        <div class="row">
+          <div class="col-xs-6 col-md-6">
+            <label>Totales</label>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <div class="form-group input-group">
+              <input type="text" name="lugarcaza[totales]">
+              <span class="input-group-addon" id="basic-addon2">/8</span>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    <fieldset>
+    <legend>Medidor</legend>
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <div class="row">
+          <div class="col-xs-6 col-md-6">
+            <label>Num.</label>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <input type="text" name="medidor[num]">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-6">
+        <div class="row">
+          <div class="col-xs-6 col-md-6">
+            <label>Nombre</label>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <input type="text" name="medidor[nombre]">
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+<?php echo Form::submit("Guardar") ?>
+<?php echo Form::close() ?>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Especie</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo Form::open("especie/nueva","post","id='form_nueva_especie'") ?>
+        <div class="form-group">
+          <div class="mensajes_modal alert"></div>
+          <?php echo Form::text("especie.especie","placeholder='Especie...'") ?>
+        </div>
+        <?php echo Form::submit("Guardar") ?>
+        <div class="cargando hide"><?php echo Html::img("spin.gif") ?></div>
+        <?php echo Form::close() ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Categoria</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo Form::open("categoria/nueva","post","id='form_nueva_categoria'") ?>
+        <div class="form-group">
+          <div class="mensajes_modal alert"></div>
+          <?php echo Form::text("categoria.categoria","placeholder='Categoria...'") ?>
+        </div>
+        <?php echo Form::submit("Guardar") ?>
+        <div class="cargando hide"><?php echo Html::img("spin.gif") ?></div>
+        <?php echo Form::close() ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Temporada</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo Form::open("temporada/nueva","post","id='form_nueva_temporada'") ?>
+        <div class="form-group">
+          <div class="mensajes_modal alert"></div>
+          <?php echo Form::text("temporada.temporada","placeholder='Temporada...'") ?>
+        </div>
+        <?php echo Form::submit("Guardar") ?>
+        <div class="cargando hide"><?php echo Html::img("spin.gif") ?></div>
+        <?php echo Form::close() ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

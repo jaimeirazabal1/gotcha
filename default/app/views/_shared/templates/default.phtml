@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta http-equiv='Content-type' content='text/html; charset=<?php echo APP_CHARSET ?>' />
+  <title><?php echo $title ?></title>
+  <?php Tag::css('bienvenida') ?>
+  <?php Tag::css('style') ?>
+  <?php Tag::css('bootstrap/css/bootstrap.min') ?>
+  <?php echo Html::includeCss() ?>
+  <?php echo Tag::js('jquery/jquery.min') ?>
+  <?php echo Tag::js('jquery/jquery.kumbiaphp') ?>
+  <?php echo Tag::js('bootstrap/js/bootstrap.min') ?>
+  <?php echo Tag::js("main") ?>
+  <?php echo Tag::js("jquery/upload") ?>
+</head>
+<body>
+    <div class='container'>
+        <?php View::content(); ?> 
+    </div>
+</body>
+</html>
